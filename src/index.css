@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MeowFlix Design System - Netflix-inspired with cat theme */
+
+@layer base {
+  :root {
+    /* Netflix-inspired background */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    /* Ice white header */
+    --header-bg: 200 25% 98%;
+    --header-foreground: 0 0% 0%;
+
+    /* Cards and surfaces */
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Netflix red for Flix and accents */
+    --netflix-red: 0 82% 45%;
+    --netflix-red-hover: 0 82% 40%;
+    
+    /* Primary brand colors */
+    --primary: 0 82% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary colors - Enhanced contrast */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 92%;
+
+    /* Muted tones - Improved contrast for accessibility */
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 78%;
+
+    /* Accent - warm golden for highlights */
+    --accent: 42 95% 67%;
+    --accent-foreground: 0 0% 10%;
+
+    /* Input and borders */
+    --input: 0 0% 20%;
+    --border: 0 0% 25%;
+    --ring: 0 82% 45%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 78%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Custom gradients for MeowFlix */
+    --gradient-netflix: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(0 0% 2%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(0 0% 8%));
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-netflix);
+    min-height: 100vh;
+  }
+  
+  .netflix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+    z-index: -1;
+  }
+  
+  .movie-poster {
+    transition: var(--transition-smooth);
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  
+  .movie-poster:hover {
+    transform: perspective(1000px) rotateY(-5deg) scale(1.05);
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer components {
+  .header-ice {
+    background: hsl(var(--header-bg));
+    color: hsl(var(--header-foreground));
+  }
+  
+  .netflix-red {
+    color: hsl(var(--netflix-red));
+  }
+  
+  .netflix-red-bg {
+    background: hsl(var(--netflix-red));
+  }
+  
+  .netflix-red-bg:hover {
+    background: hsl(var(--netflix-red-hover));
+  }
+
+  /* Frosted glass layer to soften background posters */
+  .frosted-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 0; /* sits above background (-1) and below content (z-10) */
+    background: rgba(12, 12, 12, 0.55);
+    /* removed blur to keep background sharp but softened by dark overlay */
+    pointer-events: none;
+  }
+
+  /* Enhanced accessibility styles */
+  .accessibility-card {
+    background: hsl(var(--card) / 0.98) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid hsl(var(--border) / 0.8);
+  }
+
+  /* Better focus indicators */
+  .focus-enhanced:focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.2);
+  }
+
+  /* High contrast text areas */
+  .high-contrast-text {
+    color: hsl(var(--foreground)) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Improved placeholder contrast */
+  .improved-placeholder::placeholder {
+    color: hsl(var(--muted-foreground)) !important;
+    opacity: 0.9;
+  }
+}
