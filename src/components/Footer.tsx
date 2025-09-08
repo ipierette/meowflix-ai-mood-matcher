@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Right: social links */}
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com/izadorapierette"
+              href="https://github.com/ipierette"
               target="_blank"
               rel="noopener noreferrer"
               className="focus-enhanced text-foreground hover:text-accent transition-colors p-2 rounded-md hover:bg-accent/5"
@@ -21,7 +21,7 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/in/izadorapierette"
+              href="https://www.linkedin.com/in/izadora-cury-pierette-7a7754253/"
               target="_blank"
               rel="noopener noreferrer"
               className="focus-enhanced text-foreground hover:text-accent transition-colors p-2 rounded-md hover:bg-accent/5"
@@ -30,7 +30,7 @@ const Footer = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://izadorapierette.com"
+              href="https://catbytes.netlify.app"
               target="_blank"
               rel="noopener noreferrer"
               className="focus-enhanced text-foreground hover:text-accent transition-colors p-2 rounded-md hover:bg-accent/5"
@@ -39,7 +39,7 @@ const Footer = () => {
               <ExternalLink className="w-5 h-5" />
             </a>
             <a
-              href="https://ko-fi.com/izadorapierette"
+              href="https://ko-fi.com/ipierette"
               target="_blank"
               rel="noopener noreferrer"
               className="focus-enhanced text-foreground hover:text-accent transition-colors p-2 rounded-md hover:bg-accent/5"

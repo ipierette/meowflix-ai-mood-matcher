@@ -52,8 +52,8 @@ eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMjM0NTY3ODkwYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo
 1. **Fork** este repositório no GitHub
 2. **Clone** seu fork localmente:
 ```bash
-git clone https://github.com/SEU_USUARIO/MeowFlix.git
-cd MeowFlix
+git clone https://github.com/ipierette/meowflix-ai-mood-matcher.git
+cd meowflix-ai-mood-matcher
 ```
 
 ### Option B: Upload manual

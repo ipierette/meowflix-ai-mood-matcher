@@ -12,7 +12,7 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue.svg)](https://www.typescriptlang.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC.svg)](https://tailwindcss.com/)
   
-  [Demo ao Vivo](https://your-meowflix-site.netlify.app) • [Documentação](#-como-usar) • [Reportar Bug](https://github.com/izadorapierette/MeowFlix/issues)
+  [Demo ao Vivo](https://catbytes.netlify.app) • [Documentação](#-como-usar) • [Reportar Bug](https://github.com/ipierette/meowflix-ai-mood-matcher/issues)
   
 </div>
 
@@ -95,8 +95,8 @@ O **MeowFlix** é um recomendador de filmes inteligente que utiliza inteligênci
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/izadorapierette/MeowFlix.git
-cd MeowFlix
+git clone https://github.com/ipierette/meowflix-ai-mood-matcher.git
+cd meowflix-ai-mood-matcher
 ```
 
 ### 2. Instale as Dependências
@@ -189,10 +189,10 @@ MeowFlix/
 
 ## 🌐 Demo e Links
 
-- **🚀 Demo ao Vivo**: [meowflix.netlify.app](https://your-meowflix-site.netlify.app)
+- **🚀 Demo ao Vivo**: [catbytes.netlify.app](https://catbytes.netlify.app)
 - **📖 Documentação**: Neste README
-- **🐛 Issues**: [GitHub Issues](https://github.com/izadorapierette/MeowFlix/issues)
-- **💡 Sugestões**: [GitHub Discussions](https://github.com/izadorapierette/MeowFlix/discussions)
+- **🐛 Issues**: [GitHub Issues](https://github.com/ipierette/meowflix-ai-mood-matcher/issues)
+- **💡 Sugestões**: [GitHub Discussions](https://github.com/ipierette/meowflix-ai-mood-matcher/discussions)
 
 ---
 
@@ -220,16 +220,16 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
   <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/izadorapierette">
-          <img src="https://github.com/izadorapierette.png" width="100px;" alt="Izadora Pierette"/>
+        <a href="https://github.com/ipierette">
+          <img src="https://github.com/ipierette.png" width="100px;" alt="Izadora Pierette"/>
           <br />
           <sub><b>Izadora Pierette</b></sub>
         </a>
         <br />
-        <a href="https://github.com/izadorapierette" title="GitHub">💻</a>
-        <a href="https://linkedin.com/in/izadorapierette" title="LinkedIn">💼</a>
-        <a href="https://izadorapierette.com" title="Portfolio">🌐</a>
-        <a href="https://ko-fi.com/izadorapierette" title="Ko-fi">☕</a>
+        <a href="https://github.com/ipierette" title="GitHub">💻</a>
+        <a href="https://www.linkedin.com/in/izadora-cury-pierette-7a7754253/" title="LinkedIn">💼</a>
+        <a href="https://catbytes.netlify.app" title="Portfolio">🌐</a>
+        <a href="https://ko-fi.com/ipierette" title="Ko-fi">☕</a>
       </td>
     </tr>
   </table>
