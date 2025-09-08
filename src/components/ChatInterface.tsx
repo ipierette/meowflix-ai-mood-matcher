@@ -20,6 +20,25 @@ const ChatInterface = ({ onSendMessage, isLoading }: ChatInterfaceProps) => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    // Enter para enviar (sem Shift)
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (message.trim() && !isLoading) {
+        onSendMessage(message.trim());
+        setMessage("");
+      }
+    }
+    // Ctrl+Enter ou Cmd+Enter também funciona
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      if (message.trim() && !isLoading) {
+        onSendMessage(message.trim());
+        setMessage("");
+      }
+    }
+  };
+
   return (
     <Card className="accessibility-card p-5 md:p-6 h-full flex flex-col rounded-2xl shadow-lg">
       <div className="flex items-center gap-3 mb-4">
@@ -31,7 +50,10 @@ const ChatInterface = ({ onSendMessage, isLoading }: ChatInterfaceProps) => {
 
       <div className="flex-1 mb-4">
         <p className="text-muted-foreground mb-4">
-          Descreva seu humor, estado de espírito ou o tipo de filme que você gostaria de assistir. Nossa IA vai encontrar o filme perfeito para você! �
+          Descreva seu humor, estado de espírito ou o tipo de filme que você gostaria de assistir. Nossa IA vai encontrar o filme perfeito para você! 🎬
+        </p>
+        <p className="text-xs text-muted-foreground mb-4 opacity-75">
+          💡 Dica: Pressione <kbd className="px-1 py-0.5 bg-muted text-muted-foreground rounded text-xs">Enter</kbd> para buscar rapidamente
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -43,6 +65,7 @@ const ChatInterface = ({ onSendMessage, isLoading }: ChatInterfaceProps) => {
               id="mood-input"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
               placeholder="Ex: Estou me sentindo nostálgico e quero algo que me faça chorar... ou talvez algo engraçado para melhorar meu humor!"
               className="improved-placeholder focus-enhanced min-h-[140px] md:min-h-[180px] resize-none bg-input/80 border-border text-foreground rounded-lg px-3 py-2"
               disabled={isLoading}
