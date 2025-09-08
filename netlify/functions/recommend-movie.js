@@ -27,6 +27,25 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    // Verificar se as variáveis de ambiente estão configuradas
+    if (!process.env.GOOGLE_GEMINI_API_KEY) {
+      console.error('GOOGLE_GEMINI_API_KEY não configurada');
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'Configuração de API do Gemini não encontrada' }),
+      };
+    }
+
+    if (!process.env.TMDB_API_TOKEN) {
+      console.error('TMDB_API_TOKEN não configurada');
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'Configuração de API do TMDB não encontrada' }),
+      };
+    }
+
     const { userPrompt } = JSON.parse(event.body);
 
     if (!userPrompt || typeof userPrompt !== 'string') {
@@ -36,6 +55,8 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ error: 'userPrompt é obrigatório e deve ser uma string' }),
       };
     }
+
+    console.log('Prompt recebido:', userPrompt);
 
     // Inicializar Google Gemini
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
@@ -88,11 +109,23 @@ Prompt do usuário: ${userPrompt}`;
       movieTitle = parsed.title;
     } catch (parseError) {
       console.error('Erro ao fazer parse da resposta do Gemini:', parseError);
-      return {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({ error: 'Erro ao processar resposta da IA' }),
-      };
+      console.error('Resposta original do Gemini:', geminiOutput);
+      
+      // Tentar extrair título manualmente se o JSON falhar
+      const titleMatch = geminiOutput.match(/["']?title["']?\s*:\s*["']([^"']+)["']/i);
+      if (titleMatch) {
+        movieTitle = titleMatch[1];
+        console.log('Título extraído manualmente:', movieTitle);
+      } else {
+        return {
+          statusCode: 500,
+          headers,
+          body: JSON.stringify({ 
+            error: 'Erro ao processar resposta da IA',
+            details: 'Formato de resposta inválido'
+          }),
+        };
+      }
     }
 
     if (!movieTitle) {
@@ -102,6 +135,8 @@ Prompt do usuário: ${userPrompt}`;
         body: JSON.stringify({ error: 'IA não retornou um título válido' }),
       };
     }
+
+    console.log('Buscando filme no TMDB:', movieTitle);
 
     // Buscar filme na API do TMDB com configuração para português BR
     const tmdbResponse = await fetch(
@@ -115,11 +150,15 @@ Prompt do usuário: ${userPrompt}`;
     );
 
     if (!tmdbResponse.ok) {
-      console.error('Erro na API do TMDB:', tmdbResponse.status);
+      const errorText = await tmdbResponse.text();
+      console.error('Erro na API do TMDB:', tmdbResponse.status, errorText);
       return {
         statusCode: 500,
         headers,
-        body: JSON.stringify({ error: 'Erro ao buscar filme na base de dados' }),
+        body: JSON.stringify({ 
+          error: 'Erro ao buscar filme na base de dados',
+          details: `TMDB API retornou status ${tmdbResponse.status}`
+        }),
       };
     }
 

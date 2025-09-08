@@ -193,7 +193,50 @@ MeowFlix/
 - **📖 Documentação**: Neste README
 - **🐛 Issues**: [GitHub Issues](https://github.com/ipierette/meowflix-ai-mood-matcher/issues)
 - **💡 Sugestões**: [GitHub Discussions](https://github.com/ipierette/meowflix-ai-mood-matcher/discussions)
-- **🚀 Deploy**: Siga o guia [DEPLOY.md](DEPLOY.md) para fazer seu próprio deploy
+- **🚀 Deploy**: Siga as instruções abaixo para fazer seu próprio deploy
+
+---
+
+## 🐛 Solução de Problemas
+
+### ❌ Erro 500: Internal Server Error
+
+**Possíveis causas e soluções:**
+
+1. **Variáveis de ambiente não configuradas**
+   ```
+   Erro: "Configuração de API não encontrada"
+   ```
+   **Solução**: Verifique se no Netlify você configurou:
+   - `GOOGLE_GEMINI_API_KEY` - API Key do Google Gemini
+   - `TMDB_API_TOKEN` - Bearer Token do TMDB (não a API Key!)
+
+2. **API Keys inválidas**
+   ```
+   Erro: "TMDB API retornou status 401"
+   ```
+   **Solução**: 
+   - Regenere as chaves nas respectivas plataformas
+   - Certifique-se de usar o **Bearer Token** do TMDB, não a API Key
+
+3. **Limite de API excedido**
+   ```
+   Erro: "TMDB API retornou status 429"
+   ```
+   **Solução**: Aguarde alguns minutos e tente novamente
+
+### ❌ Function not found
+
+**Solução**:
+1. Verifique se `netlify.toml` está na raiz do projeto
+2. Confirme que a pasta `netlify/functions/` existe
+3. Faça redeploy manual no Netlify
+
+### 🔍 Como verificar logs
+
+1. Acesse seu site no Netlify Dashboard
+2. Vá em **Functions** → **recommend-movie**
+3. Clique em **View logs** para ver erros detalhados
 
 ---
 
