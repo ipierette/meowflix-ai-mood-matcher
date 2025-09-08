@@ -12,7 +12,7 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue.svg)](https://www.typescriptlang.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC.svg)](https://tailwindcss.com/)
   
-  [Demo ao Vivo](https://catbytes.netlify.app) • [Documentação](#-como-usar) • [Reportar Bug](https://github.com/ipierette/meowflix-ai-mood-matcher/issues)
+  [Repositório](https://github.com/ipierette/meowflix-ai-mood-matcher) • [Documentação](#-como-usar) • [Reportar Bug](https://github.com/ipierette/meowflix-ai-mood-matcher/issues)
   
 </div>
 
@@ -128,6 +128,7 @@ npm install
    TMDB_API_TOKEN=seu_bearer_token_aqui
    ```
 4. O deploy será **automático** ✨
+5. Seu MeowFlix estará disponível em `seu-site-name.netlify.app`
 
 ### 5. Desenvolvimento Local
 
@@ -187,12 +188,12 @@ MeowFlix/
 
 ---
 
-## 🌐 Demo e Links
+## 🌐 Links e Recursos
 
-- **🚀 Demo ao Vivo**: [catbytes.netlify.app](https://catbytes.netlify.app)
 - **📖 Documentação**: Neste README
 - **🐛 Issues**: [GitHub Issues](https://github.com/ipierette/meowflix-ai-mood-matcher/issues)
 - **💡 Sugestões**: [GitHub Discussions](https://github.com/ipierette/meowflix-ai-mood-matcher/discussions)
+- **🚀 Deploy**: Siga o guia [DEPLOY.md](DEPLOY.md) para fazer seu próprio deploy
 
 ---
 
