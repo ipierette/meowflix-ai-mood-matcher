@@ -124,9 +124,10 @@ npm install
 2. Conecte seu repositório ao **Netlify**
 3. Configure as **variáveis de ambiente**:
    ```
-   GOOGLE_GEMINI_API_KEY=sua_api_key_aqui
+   GEMINI_API_KEY=sua_api_key_aqui
    TMDB_API_TOKEN=seu_bearer_token_aqui
    ```
+   *Nota: Também aceita `GOOGLE_GEMINI_API_KEY` se você preferir*
 4. O deploy será **automático** ✨
 5. Seu MeowFlix estará disponível em `seu-site-name.netlify.app`
 
@@ -208,7 +209,7 @@ MeowFlix/
    Erro: "Configuração de API não encontrada"
    ```
    **Solução**: Verifique se no Netlify você configurou:
-   - `GOOGLE_GEMINI_API_KEY` - API Key do Google Gemini
+   - `GEMINI_API_KEY` (ou `GOOGLE_GEMINI_API_KEY`) - API Key do Google Gemini
    - `TMDB_API_TOKEN` - Bearer Token do TMDB (não a API Key!)
 
 2. **API Keys inválidas**

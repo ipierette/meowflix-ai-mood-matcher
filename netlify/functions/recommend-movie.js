@@ -28,8 +28,9 @@ exports.handler = async (event, context) => {
 
   try {
     // Verificar se as variáveis de ambiente estão configuradas
-    if (!process.env.GOOGLE_GEMINI_API_KEY) {
-      console.error('GOOGLE_GEMINI_API_KEY não configurada');
+    const geminiApiKey = process.env.GOOGLE_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
+    if (!geminiApiKey) {
+      console.error('GEMINI_API_KEY ou GOOGLE_GEMINI_API_KEY não configurada');
       return {
         statusCode: 500,
         headers,
@@ -59,7 +60,7 @@ exports.handler = async (event, context) => {
     console.log('Prompt recebido:', userPrompt);
 
     // Inicializar Google Gemini
-    const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
+    const genAI = new GoogleGenerativeAI(geminiApiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     // Prompt system para o Gemini em português BR
