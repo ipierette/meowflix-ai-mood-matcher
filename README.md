@@ -7,7 +7,7 @@
   
   *Transforme seu humor em recomendações perfeitas de filmes! 🐱*
   
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://app.netlify.com/sites/your-site-name/deploys)
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/f1601354-09fe-4489-84b4-6e8a4d093b56/deploy-status)](https://app.netlify.com/sites/meowflixia/deploys)
   [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue.svg)](https://www.typescriptlang.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-38B2AC.svg)](https://tailwindcss.com/)
